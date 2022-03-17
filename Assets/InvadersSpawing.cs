@@ -21,7 +21,7 @@ public class InvadersSpawing : MonoBehaviour
     void Update()
     {
        
-            if(invaderOnePrefab != null)
+            if(invaderOnePrefab != null&& Input.GetKeyDown(KeyCode.A))
             { 
                 for (int j = 0; j < 2; j++)
                 {
@@ -36,7 +36,7 @@ public class InvadersSpawing : MonoBehaviour
                 }
 
             }
-            if (invaderTwoPrefab != null)
+            if (invaderTwoPrefab != null && Input.GetKeyDown(KeyCode.B))
             {
                 for (int j = 0; j < 2; j++)
                 {
@@ -46,7 +46,7 @@ public class InvadersSpawing : MonoBehaviour
                     }
                 }
             }
-        if (invaderThreePrefab != null)
+        if (invaderThreePrefab != null && Input.GetKeyDown(KeyCode.C))
         {
                 for (float i = 0.0f; i < numberOfPrefabs; i = i + 1.5f)
                 {

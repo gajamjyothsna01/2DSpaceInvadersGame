@@ -14,6 +14,10 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.Translate(Vector3.right * speed * Time.deltaTime);
+        float inputX = Input.GetAxis("Horizontal");
+        float inputY = Input.GetAxis("Vertical");
+      
+        gameObject.transform.Translate(Vector3.right *inputX* speed * Time.deltaTime);
+        gameObject.transform.Translate(Vector3.up * inputY * speed * Time.deltaTime);
     }
 }

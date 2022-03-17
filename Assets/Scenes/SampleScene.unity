@@ -756,7 +756,6 @@ MonoBehaviour:
   invaderTwoPrefab: {fileID: 3570197849283471062, guid: 5fed08f8aa519f7448fc2733556facad, type: 3}
   invaderThreePrefab: {fileID: 1330339373463401791, guid: d9ae14257af5e8e4cbdf2514fa52147a, type: 3}
   numberOfPrefabs: 12
-  direction: {x: 1, y: 0, z: 0}
   invaderSpeed: 1
 --- !u!4 &1759281252
 Transform:
