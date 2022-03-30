@@ -72,84 +72,96 @@ public class MovementScript : MonoBehaviour
            
         }
 
-        /*if (prefabToCheck == invaderTwoPrefab)
-        {
-            Debug.Log("SecondPrefab");
-            gameObject.transform.Translate(Vector3.right * invaderSpeed * Time.deltaTime);
-        }*/
-        //if(gameObject.transform.position.x > 6.45 )
-        // {
-        // StartCoroutine("InvadersStopForSomeRTime");
-        /*    
-            if(transform.position.x == 6.45)
-        {
-            gameObject.transform.Translate(Vector3.left * invaderSpeed * Time.deltaTime);
-        }*/
-
-        //StartCoroutine("InvadersStopForSomeRTime");
-        //gameObject.transform.Translate(Vector3.left * invaderSpeed * Time.deltaTime);
-        //  }
-        /* if (gameObject.transform.position.x == 6.45)
-         {
-
-         }*/
-
-
-        // if (transform.position.x < -6.58)
-        // {
-        // StartCoroutine("InvadersStopForSomeRTime");
-        // gameObject.transform.Translate(Vector3.left * invaderSpeed * Time.deltaTime);
-        // }
-        // gameObject.transform.Translate(Vector3.up * inputY * speed * Time.deltaTime);
-
-
-        /*
-       if(transform.position.x < -8.15f)
-        {
-            transform.position = new Vector3(-8.09f, transform.position.y, 0);
-        }
-        if (transform.position.x > 8.07f)
-        {
-            transform.position = new Vector3(8.07f,transform.position.y,0);
-        }
-        if (transform.position.y > 3.45)
-        {
-            transform.position = new Vector3(transform.position.x, 3.45f, 0);
-
-        }
-        if (transform.position.y < -1.21f)
-        {
-            transform.position = new Vector3(transform.position.x, -1.21f, 0);
-        }*/
-    
-   /* private void OnCollisionEnter(Collision collision)
+    /*if (prefabToCheck == invaderTwoPrefab)
     {
-        if(prefabToCheck !=invaderOnePrefab)
-        {
-            if(collision.gameObject.tag != "RightWall")
-            {
-                Debug.Log("FirstPrefab");
-                gameObject.transform.Translate(Vector3.left * invaderSpeed * Time.deltaTime);
-                this.gameObject.transform.position = collision.transform.position; 
-               
-            }
-        }
+        Debug.Log("SecondPrefab");
+        gameObject.transform.Translate(Vector3.right * invaderSpeed * Time.deltaTime);
     }*/
-     private void OnTriggerEnter(Collider other)
-      {
-          if(other.gameObject.tag == "RightWall")
-          {
-              transform.Translate(Vector3.left *invaderSpeed * Time.deltaTime);
-          }
-          if(other.gameObject.tag =="LeftWall")
-          {
-              transform.Translate(Vector3.right *invaderSpeed * Time.deltaTime);
-          }
-      }
-   
-      IEnumerator InvadersStopForSomeRTime()
-      {
-          yield return new WaitForSeconds(5f);
+    //if(gameObject.transform.position.x > 6.45 )
+    // {
+    // StartCoroutine("InvadersStopForSomeRTime");
+    /*    
+        if(transform.position.x == 6.45)
+    {
+        gameObject.transform.Translate(Vector3.left * invaderSpeed * Time.deltaTime);
+    }*/
 
-      }
+    //StartCoroutine("InvadersStopForSomeRTime");
+    //gameObject.transform.Translate(Vector3.left * invaderSpeed * Time.deltaTime);
+    //  }
+    /* if (gameObject.transform.position.x == 6.45)
+     {
+
+     }*/
+
+
+    // if (transform.position.x < -6.58)
+    // {
+    // StartCoroutine("InvadersStopForSomeRTime");
+    // gameObject.transform.Translate(Vector3.left * invaderSpeed * Time.deltaTime);
+    // }
+    // gameObject.transform.Translate(Vector3.up * inputY * speed * Time.deltaTime);
+
+
+    /*
+   if(transform.position.x < -8.15f)
+    {
+        transform.position = new Vector3(-8.09f, transform.position.y, 0);
+    }
+    if (transform.position.x > 8.07f)
+    {
+        transform.position = new Vector3(8.07f,transform.position.y,0);
+    }
+    if (transform.position.y > 3.45)
+    {
+        transform.position = new Vector3(transform.position.x, 3.45f, 0);
+
+    }
+    if (transform.position.y < -1.21f)
+    {
+        transform.position = new Vector3(transform.position.x, -1.21f, 0);
+    }*/
+
+    /* private void OnCollisionEnter(Collision collision)
+     {
+         if(prefabToCheck !=invaderOnePrefab)
+         {
+             if(collision.gameObject.tag != "RightWall")
+             {
+                 Debug.Log("FirstPrefab");
+                 gameObject.transform.Translate(Vector3.left * invaderSpeed * Time.deltaTime);
+                 this.gameObject.transform.position = collision.transform.position; 
+
+             }
+         }
+     }*/
+    /*
+     private void OnTriggerEnter(Collider other)
+        {
+            if(other.gameObject.tag == "RightWall")
+            {
+                transform.Translate(Vector3.left *invaderSpeed * Time.deltaTime);
+            }
+            if(other.gameObject.tag =="LeftWall")
+            {
+                transform.Translate(Vector3.right *invaderSpeed * Time.deltaTime);
+            }
+        }*/
+
+        IEnumerator InvadersStopForSomeRTime()
+        {
+            yield return new WaitForSeconds(5f);
+
+        }
+  private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Laser")
+        {
+           
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            GameObject.Find("ScoreManager").GetComponent<ScoreManagerScript>().Score(1);
+        }
+    }
+
 }

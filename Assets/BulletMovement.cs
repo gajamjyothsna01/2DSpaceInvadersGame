@@ -27,15 +27,16 @@ public class BulletMovement : MonoBehaviour
       gameObject.transform.Translate(Vector2.up * bulletSpeed*Time.deltaTime);
         
      }
-    private void OnCollisionEnter2D(Collision2D collision)
+   /* private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Enemy")
         {
+            Debug.Log("AsD");
             Destroy(collision.gameObject);
             Destroy(gameObject);
             //Increase the SCores.
         }
-    }
+    }*/
 
 
 }
