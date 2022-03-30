@@ -29,13 +29,17 @@ public class InvadersSpawing : MonoBehaviour
                     {
                         
                              Instantiate(invaderOnePrefab, new Vector3(-5.5f + i, -1.06f + j, -1.35f), Quaternion.identity);
-                            // invaderOnePrefab.transform.Translate(Vector3.right * invaderSpeed * Time.deltaTime);
+                            // StartCoroutine("checkForInvadersGrid");
+                            //  transform.Translate(Vector3.right* invaderSpeed * Time.deltaTime);
+                         //   invaderOnePrefab.transform.Translate(Vector3.right * invaderSpeed * Time.deltaTime);
                         
                         
                     }
                 }
+         
 
-            }
+        }
+          
             if (invaderTwoPrefab != null && Input.GetKeyDown(KeyCode.B))
             {
                 for (int j = 0; j < 2; j++)
@@ -43,7 +47,8 @@ public class InvadersSpawing : MonoBehaviour
                     for (float i = 0.0f; i < numberOfPrefabs; i = i + 1.5f)
                     {
                          Instantiate(invaderTwoPrefab, new Vector3(-5.5f + i, 0.94f + j, -1.35f), Quaternion.identity);
-                    }
+                          StartCoroutine("checkForInvadersGrid");
+                }
                 }
             }
         if (invaderThreePrefab != null && Input.GetKeyDown(KeyCode.C))
@@ -52,10 +57,16 @@ public class InvadersSpawing : MonoBehaviour
                 {
                     Instantiate(invaderThreePrefab, new Vector3(-5.5f + i,2.94f, -1.35f), Quaternion.identity);
                 }
+            StartCoroutine("checkForInvadersGrid");
         }
+      //  gameObject.transform.Translate(Vector3.right * invaderSpeed * Time.deltaTime);
 
 
 
+    }
+    IEnumerator checkForInvadersGrid()
+    {
+        yield return new WaitForSeconds(5f);
 
     }
 }
